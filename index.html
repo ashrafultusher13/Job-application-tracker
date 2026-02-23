@@ -37,35 +37,35 @@
       <div class="grid grid-cols-3 gap-4">
         <div class="bg-white p-5 rounded-md">
           <h3 class="text-[#323B49]">Total</h3>
-          <p class="text-xl font-bold text-[#323B49]">0</p>
+          <p id="totalcount" class="text-xl font-bold text-[#323B49]">0</p>
         </div>
         <div class="bg-white p-5 rounded-md">
           <h3 class="text-[#323B49]">Interview</h3>
-          <p class="text-xl font-bold text-green-600">0</p>
+          <p id="intercount" class="text-xl font-bold text-green-600">0</p>
         </div>
         <div class="bg-white p-5 rounded-md">
           <h3 class="text-[#323B49]">Rejected</h3>
-          <p class="text-xl font-bold text-red-600">0</p>
+          <p id="rejeccount" class="text-xl font-bold text-red-600">0</p>
         </div>
       </div>
     </header>
 
     <hr class="py-4 w-[80%] mx-auto text-[#E6E7E9]" />
 
-    <main class="w-[80%] mx-auto">
+    <main class="w-[80%] mx-auto pb-14">
       <!-- Upper main -->
       <div class="flex justify-between pb-4">
         <!-- 1st part -->
         <div>
           <h2 class="mb-6">Available Jobs</h2>
           <div class="flex gap-2">
-            <button class="bg-[#3B82F6] text-white py-2 px-7 rounded-md">
+            <button onclick="toggleStyle('all-btn')" id="all-btn" class="bg-blue-500 text-white py-2 px-7 rounded-md">
               All
             </button>
-            <button class="bg-white text-[#64748B] py-2 px-7 rounded-md">
+            <button onclick="toggleStyle('int-btn')"  id="int-btn" class="bg-white text-[#64748B] py-2 px-7 rounded-md">
               Interview
             </button>
-            <button class="bg-white text-[#64748B] py-2 px-7 rounded-md">
+            <button onclick="toggleStyle('rej-btn')" id="rej-btn" class="bg-white text-[#64748B] py-2 px-7 rounded-md">
               Rejected
             </button>
           </div>
@@ -78,8 +78,8 @@
       </div>
       <!-- Lower main -->
       <!-- Cards -->
-      <div class="space-y-5">
-        <!-- card -->
+      <section id="allcards" class="space-y-5">
+        <!-- card 1-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -109,7 +109,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 2-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -139,7 +139,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 3-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -169,7 +169,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 4-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -199,7 +199,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 5-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -230,7 +230,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 6-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -261,7 +261,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 7-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -292,7 +292,7 @@
             </button>
           </div>
         </div>
-        <!-- card -->
+        <!-- card 8-->
         <div class="bg-white rounded-lg flex justify-between items-baseline">
           <!-- 1st part card -->
           <div class="space-y-5 p-6">
@@ -323,7 +323,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </section>
     </main>
     <script src="./script.js"></script>
   </body>
