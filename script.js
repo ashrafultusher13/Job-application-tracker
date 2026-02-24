@@ -18,10 +18,10 @@ const noJobSec = document.getElementById("no-job");
 
 function calculateCount() {
   totalCount.innerText = allCards.children.length;
-  sideJobCount.innerText = allCards.children.length;
   intCount.innerText = intList.length;
   rejCount.innerText = rejList.length;
 }
+sideJobCount.innerText = allCards.children.length;
 calculateCount();
 
 function toggleStyle(id) {
@@ -107,9 +107,13 @@ mainCon.addEventListener("click", function (event) {
     rejList = rejList.filter(
       (item) => item.companyName != cardInfo.companyName,
     );
+    sideJobCount.innerText = rejList.length;
     calculateCount();
     if (currentStatus == "rej-btn") {
       putRej();
+    }
+    if (currentStatus == "all") {
+      sideJobCount.innerText = allCards.children.length;
     }
   } else if (event.target.classList.contains("rej-card-btn")) {
     const parentNode = event.target.parentNode.parentNode;
@@ -138,11 +142,15 @@ mainCon.addEventListener("click", function (event) {
     intList = intList.filter(
       (item) => item.companyName != cardInfo.companyName,
     );
+    sideJobCount.innerText = intList.length;
+    calculateCount();
 
     if (currentStatus == "int-btn") {
       putInt();
     }
-    calculateCount();
+    if (currentStatus == "all") {
+      sideJobCount.innerText = allCards.children.length;
+    }
   }
 });
 
