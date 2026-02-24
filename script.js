@@ -76,6 +76,7 @@ mainCon.addEventListener("click", function (event) {
     const parentNode = event.target.parentNode.parentNode;
     parentNode.remove();
     calculateCount();
+    sideJobCount.innerText = allCards.children.length;
   }
 });
 
@@ -89,6 +90,13 @@ mainCon.addEventListener("click", function (event) {
     const workNote = parentNode.querySelector(".post-work").innerText;
 
     parentNode.querySelector(".state").innerText = "INTERVIEW";
+
+    parentNode
+      .querySelector(".state")
+      .classList.remove("btn", "btn-error", "btn-soft", "py-1", "px-2");
+    parentNode
+      .querySelector(".state")
+      .classList.add("btn", "btn-success", "btn-soft", "py-1", "px-2");
 
     const cardInfo = {
       companyName,
@@ -124,6 +132,12 @@ mainCon.addEventListener("click", function (event) {
     const workNote = parentNode.querySelector(".post-work").innerText;
 
     parentNode.querySelector(".state").innerText = "REJECTED";
+    parentNode
+      .querySelector(".state")
+      .classList.remove("btn", "btn-success", "btn-soft", "py-1", "px-2");
+    parentNode
+      .querySelector(".state")
+      .classList.add("btn", "btn-error", "btn-soft", "py-1", "px-2");
 
     const cardInfo = {
       companyName,
@@ -170,7 +184,9 @@ function putInt() {
             <p class="post-details text-[#64748B]">
               ${int.postDetails}
             </p>
-            <p class="state text-[#002C5C]">${int.status}</p>
+            <span class="state btn btn-success btn-soft  py-1 px-2"
+              >${int.status}</span
+            >
             <p class="post-work text-[#323B49] mt-4">
               ${int.workNote}
             </p>
@@ -212,7 +228,9 @@ function putRej() {
             <p class="post-details text-[#64748B]">
               ${rej.postDetails}
             </p>
-            <p class="state text-[#002C5C]">${rej.status}</p>
+            <span class="state btn btn-soft btn-error py-1 px-2"
+              >${rej.status}</span
+            >
             <p class="post-work text-[#323B49] mt-4">
               ${rej.workNote}
             </p>
