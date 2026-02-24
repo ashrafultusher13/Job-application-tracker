@@ -5,6 +5,7 @@ let currentStatus = "all";
 let totalCount = document.getElementById("totalcount");
 let intCount = document.getElementById("intercount");
 let rejCount = document.getElementById("rejeccount");
+let sideJobCount = document.getElementById("job-count");
 
 const allBtn = document.getElementById("all-btn");
 const intBtn = document.getElementById("int-btn");
@@ -13,9 +14,11 @@ const rejBtn = document.getElementById("rej-btn");
 const allCards = document.getElementById("allcards");
 const mainCon = document.querySelector("main");
 const filterSec = document.getElementById("filtered-section");
+const noJobSec = document.getElementById("no-job");
 
 function calculateCount() {
   totalCount.innerText = allCards.children.length;
+  sideJobCount.innerText = allCards.children.length;
   intCount.innerText = intList.length;
   rejCount.innerText = rejList.length;
 }
@@ -42,22 +45,39 @@ function toggleStyle(id) {
     allCards.classList.add("hidden");
     filterSec.classList.remove("hidden");
     putInt();
+    sideJobCount.innerText = intList.length;
+    noJobSec.classList.remove("hidden");
+    if (intCount.innerText !== "0") {
+      noJobSec.classList.add("hidden");
+    }
   } else if (id == "all-btn") {
     allCards.classList.remove("hidden");
     filterSec.classList.add("hidden");
+    sideJobCount.innerText = allCards.children.length;
+    noJobSec.classList.add("hidden");
+    if (totalCount.innerText === "0") {
+      noJobSec.classList.remove("hidden");
+    }
   } else if ((id = "rej-btn")) {
     allCards.classList.add("hidden");
     filterSec.classList.remove("hidden");
     putRej();
+    sideJobCount.innerText = rejList.length;
+    noJobSec.classList.remove("hidden");
+    if (rejCount.innerText !== "0") {
+      noJobSec.classList.add("hidden");
+    }
   }
 }
 
-mainCon.addEventListener("click", function(event) {
-  
-  const parentNode = event.target.parentNode.parentNode;
-  event.target
-  
-})
+// Delete funtionality
+mainCon.addEventListener("click", function (event) {
+  if (event.target.classList.contains("delete-btn")) {
+    const parentNode = event.target.parentNode.parentNode;
+    parentNode.remove();
+    calculateCount();
+  }
+});
 
 mainCon.addEventListener("click", function (event) {
   if (event.target.classList.contains("int-card-btn")) {
@@ -138,14 +158,13 @@ function putInt() {
             <h2 class="company-name text-[#002C5C] font-bold">
               ${int.companyName}
             </h2>
-            <p class="company-post text-[#64748B]">React Native Developer</p>
+            <p class="company-post text-[#64748B]">${int.companyPost}</p>
             <p class="post-details text-[#64748B]">
-              Remote • Full-time • $130,000 - $175,000
+              ${int.postDetails}
             </p>
             <p class="state text-[#002C5C]">${int.status}</p>
             <p class="post-work text-[#323B49] mt-4">
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              ${int.workNote}
             </p>
             <!-- Buttons -->
             <div class="flex gap-2">
@@ -181,14 +200,13 @@ function putRej() {
             <h2 class="company-name text-[#002C5C] font-bold">
               ${rej.companyName}
             </h2>
-            <p class="company-post text-[#64748B]">React Native Developer</p>
+            <p class="company-post text-[#64748B]">${rej.companyPost}</p>
             <p class="post-details text-[#64748B]">
-              Remote • Full-time • $130,000 - $175,000
+              ${rej.postDetails}
             </p>
             <p class="state text-[#002C5C]">${rej.status}</p>
             <p class="post-work text-[#323B49] mt-4">
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              ${rej.workNote}
             </p>
             <!-- Buttons -->
             <div class="flex gap-2">

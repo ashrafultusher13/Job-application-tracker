@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-[#F8FAFC]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,15 +26,16 @@
     <style>
       * {
         font-family: "Geist", sans-serif;
+        /* border: 2px solid red; */
       }
     </style>
   </head>
-  <body class="bg-[#F8FAFC]">
+  <body>
     <header class="w-[80%] mx-auto py-11">
       <h1 class="text-3xl font-bold mb-5 text-[#002C5C]">
         Job Application Tracker
       </h1>
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="bg-white p-5 rounded-md">
           <h3 class="text-[#323B49]">Total</h3>
           <p id="totalcount" class="text-xl font-bold text-[#323B49]">0</p>
@@ -54,11 +55,13 @@
 
     <main class="w-[80%] mx-auto pb-14">
       <!-- Upper main -->
-      <div class="flex justify-between pb-4">
+      <div class="flex justify-between items-baseline pb-4">
         <!-- 1st part -->
-        <div>
-          <h2 class="mb-6">Available Jobs</h2>
-          <div class="flex gap-2">
+        <div class="text-center sm:text-start w-full sm:w-auto">
+          <h2 class="mb-6 font-semibold text-xl text-[#002C5C]">
+            Available Jobs
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <button
               onclick="toggleStyle('all-btn')"
               id="all-btn"
@@ -89,6 +92,12 @@
         </div>
       </div>
       <!-- Lower main -->
+      <!-- No jobs section -->
+      <section id="no-job" class="text-center space-y-2 bg-white py-28 hidden">
+        <img class="mx-auto" src="./images/jobs.png" alt="" />
+        <h2 class="font-semibold text-[#002C5C] text-2xl">No jobs available</h2>
+        <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+      </section>
 
       <!-- Filtered cards -->
       <section id="filtered-section" class="hidden space-y-5"></section>
@@ -124,7 +133,7 @@
 
           <!-- 2nd part card -->
           <div class="mr-5">
-            <button class="text-[#64748B] btn btn-circle">
+            <button class="delete-btn text-[#64748B] btn btn-circle">
               <i class="fa-regular fa-trash-can"></i>
             </button>
           </div>
@@ -136,14 +145,14 @@
             <h2 class="company-name text-[#002C5C] font-bold">
               WebFlow Agency
             </h2>
-            <p class="company-post text-[#64748B]">React Native Developer</p>
+            <p class="company-post text-[#64748B]">Web Designer & Developer</p>
             <p class="post-details text-[#64748B]">
-              Remote • Full-time • $130,000 - $175,000
+              Los Angeles, CA • Part-time • $80,000 - $120,000
             </p>
             <p class="state text-[#002C5C]">NOT APPLIED</p>
             <p class="post-work text-[#323B49] mt-4">
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Create stunning web experiences for high-profile clients. Must
+              have portfolio and experience with modern web design trends.
             </p>
             <!-- Buttons -->
             <div class="flex gap-2">
@@ -158,7 +167,7 @@
 
           <!-- 2nd part card -->
           <div class="mr-5">
-            <button class="text-[#64748B] btn btn-circle">
+            <button class="delete-btn text-[#64748B] btn btn-circle">
               <i class="fa-regular fa-trash-can"></i>
             </button>
           </div>
